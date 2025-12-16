@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacy Line Charts v1.0 - East Ridge Raptors</title>
+    <title>East Ridge Raptors v1.1</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -108,82 +108,84 @@
         );
 
         // ============================================================
-        // SUBSCRIBER CONFIGURATION - EAST GRAND FORKS GREEN WAVE
+        // SUBSCRIBER CONFIGURATION
+        // Set SUBSCRIBER_MODE = true when building subscriber sites
+        // Then populate EMBEDDED_CONFIG with their exported data
         // ============================================================
-        const SUBSCRIBER_MODE = true;
+        const SUBSCRIBER_MODE = true;  // Master site = false, Subscriber sites = true
         
         const EMBEDDED_CONFIG = {
           siteId: 'eastridge',
           teamSetup: {
             teamName: 'East Ridge Raptors',
-            logo: 'data:image/webp;base64,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',
-            colors: { primary: '#231f20', secondary: '#a3966b' },
+            logo: 'data:image/webp;base64,UklGRqoNAABXRUJQVlA4WAoAAAAgAAAAowAAhQAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDggvAsAAPA6AJ0BKqQAhgA+USCORCOiIZbJjiw4BQSzgGqXe3JFXt3kw0W4V8z3Pqw7x5u7Hv9R4U+L/1f7qck6Id8m++voLz676fhvqHfk384/zHo9QOtNPQU91/wnoDT9fvHQpxyJpPVX+fn5Tu97xKXlGm9VM5UxJxrD05qv/5ab5mBrk73KyaFR9mnT+XiPFH8G+m+KmH2w2hgdb87ox/kVhmsORsmKe9TruAXSnNBSlPUauG3wvXlHrtkUBNtTk0Poq/ksth1kDq45C9+okWa3AC1b9T26w/qJg/JUp5fHxIPKdvvvHSk2+rwZAhUR+S/QlYj3bXMZf2o9CONqT5Y9Dea3wGy4boDOa+MpLJn1x6gpimYjqmtkFWYudf20OMKREs8/WLu5t4p1Gn3xBxH5qby/3xdpAZj4PvFGMmQ+Ju1/yJHO7x6PQo1o2LNxmArDxKIXUDI/7pJwVaCoYACwtlpF61+UP8vOeb6pL4VQJ8vOJ8DbtlRvKSgSohcCQXP2nNPNH2kJiPVinwhx/roVWz4PSK76axITkOQQFTlK1tuRaOndy/B/j6OlIlGrFfdISmeadoCCsusZmRE/HDlEV+S+m0d4tB/PnHCVr9OB6jPDGYXBWjgPMre0G0FNEY0wAAD+/RTCZskZY7vSqeEXCvJd02yFoAywCX379pRJY7POfO769c8RlEkiqO7QQfhUJUzPNESg8AFczXX/0NL0Y1XlsQNls0ar/8vl5xp2bBG/Gkpve5LbSgjhckb2lqSa9+ikClwTw4YS9auZrcnGzQF0cfqkbmYLC+w43VEP26auwsx37O6DFdFCOElGqNJL9mLq4VC/uHYl+qIJB36Z+ZJswBfJMoPGpaIsL5mSlQNtHEQvJdHclxWEurRd/SRrKcKKdW1XFLP52fLLDnKG1MuV3Je+R7m61F7ME9+jYlqzDWqh1lBgTYSQ5GqQHS7GPh5v1M7cS2WB9U72oNHMr93ynJZ/E5JkYUN47qM3246CJwPl88B5WC9QHWQXf6y1wz94e4jkT6DHIj85ioqRU0od5dLvxP1auzbgo00xkcUC/xK78tyR+kOrS/IqbGl0X9zwAvgik9cpucGbht4G8tIKmVC7d3AuUEa2/iBBsecOr1YKm5IlplbJwQE3RMG5BOuUdrTd2WdX59DdaEQooEkPhNRSiEig4tZsfN+Q+A1C9fhvzesWPqtR80YbGs5qAdlFNxGSPN6ZNouM8JPV/SQEcCv/Tyj0lC4/KBjlZSMdEGOJTfbVCdcfWMPj0d4HPPB343/jhM7t0fJ21/472mo8bkPrimx80lNZutX+p4q1/6eRxYJc9Sc6658OnF/dRs0Jz4u32oMJPWT/Lvasc63HfeOOMr1kQ2Irlz9LSIq8QuImPo+fYweQkQ+n/gygpGsl2XKEBMZ9jiHOL8IfHiYY9OXzhN5m1dFJUXsAxuXdHMPx7miZxDCzgKi5VKxinOpdzsOyoe3RUh4x0o60OlzMby18sHyeaigMYbBnLQhTrs7eaciZKHH1QWfwXecZlNA6ehnYiYHcTojrjLnU4vVq6bByU326zl7uJ7i3x4zKf4aWp0fvYu6RE0cGqgK14xgIAXXNbniEn97VWphOR2T+nGExyPokRvFr60+MLi+PIZtQZEU+EbHyZpwENAJcGkCEyza4N8oL4n+M12gSRcZ6Yj0MlywGXUaJjnUUdNTZ+rqazQk/xmHUJX5hLPzSml8vEVsl4+5wXKPOigGeeUbTxtUYaUoYDsezE6kQZhV1+jM4gCsRE4b52hxGKLn3A/e2jraNaXn9lCqRMe1xGpe8nflxS7/5MARfW8VDFB0Ld00ysnVMQ1QUxJxLi3Tm7jTQpdYllZi8RdGuqXPckLGuwhrfzVbj+B62mxWOmSqRGmjK6IcR6tzc5WqtRjg3JCQD1ZiEIl3U5miNOOCGzRVLIf9En9w2bdZ3HDSQXzqQJNBtmT9MP6QBHZg8lb5bhLael/lGvswGrT/iXKA75hL7e5cupHtB3N20EKOeNV5aJuON7/y/g+bIYSgcEXImXO7aK8/af1IKQqbxhJPTA8GKLpfiS5PPAjRxCRG6ao18OifR2wL5h2NJVbuySYf3ihahmT5hBzT8jLpdRxA1taW+nqHvm3FrWldpA2/c3a/Y6JWEw03IUsi+I2sCsiJzO/mVywgmA8+TompIiNEkyVr2ND6hsvSpL4FtOUc2i89Pk9h+55TNXueZL3yM5wdFzBsizqwel5zyYG6BgpPeofYYcubptvfKi8y0+NThH9lRaFv1J1RsInnam6aY+7xm6GhhzVDqYXh+bjfMLplEhACQ2VIPjg5ffdNh8qTgCtlzLZ/Fg6VfTGuHcos1PIMXaIkc9FqrxR1PE+Wxs4HoXVDMucVlhqWtNUGHfw6jDqC2Fz7UMOX5JyND2OoecnNAf6PkhsViYBOJVp5gB9A4ie6LBQepTOyTc5mp29yolA9b+7H1+AALSFw9ofh7I+7JgXMf1UrLeAGmB5MitffNkuceMzrKkrmONshAVRO6R3z5u52teZ3K2SgiU+gbwV8OZsYNFgOBUwgC14C9cZWceFm1xeXnOa8htm/if7vAW8OVwwJ99Nl/6ZKwF90/kXXu01PwM1tWoUTTkm0epSQ7J3FvmCadADvckQiKCF/eH3vZXjkZogutmfJYIQ87OGv5K3rCBkMnF11igYk1MMyw2RWM7Gj9hTxycIe1sSTrIsUoyimzZMBcDybedhrI7v/qgj1r0pG3MQpc5aPwhy4ICFGWrq93eka7mkX4WVdLUAO8dsM21ds6qJ8k9PO6JY636VBlpDo0InKBnzV7WFnWOnncOEWQRmeGq059F9C6z9yVL9l3mfDAEr5AKTz6ThQ+E3dTIXeYpcBLg7cTO+qsGV/n0pQwCor8OISSjEAhLRqoN9/IyZGVUJmQaY//KLSIRB8NweucSYbsIplxpBW/Sdzy/CYjgjZfNYYB3sF05xVn9s3JYrkFtnL/yOd1oA9Bo+JHEq5U0MBoUKgZ/1rxQvsyxLkmdAXS08bcNH0TBUR4RVzYt4U3W7QmMnWuQ5rgat8bvI+ZuJs3upRncuHV8vsJDiWUZrWxYMPblsFvnsbRHV2WBmdn4iRjCFs4FKrdHGpr+89syLm3JrBxcYJt0225Ze4RvyjE/V41Hs/yFdY5u1dacqI14cLt1CV7dDfkVNCK7IdVRGoiyYiSYdxBxx0E0tgC9n3oAgRuznsX7URPx9ItOPljj+nynCt5Uh+7K6GnNyvd38vA7X2jNBS8TFn6YjPvZqTsoHcvDVQBwzenUDByaxireUriEmTZZ0iSYlmbSnEzLp+5tSvJpMiT+b9pth4fgHTjNS5izApainh4fb5XYq8cghvyc90wdLXhlAdqnz/GSF/pBbXf2oDwvlbTMva6e+nDN/wgvElPsV4vSP1cN8MIObjRvKMhU0ZaMsTWYhGopI8dVkuEQQDAl6p5tFtLbULuTkpFp3opPFUJKMoVPDwmwlJFiBfJW2E4s6W/NQtnRsJhrxMELc1zDzsQ83bzkahmS2n+QPqkzVCQvK8C9iGa2ubx1L+fb6+WwHDRHwGgraSDG1p2Cp3VVE1TDJSjT4Q0L2gARbn27pHDekR+5Wg2YfAXXvNKN897uKlUO+jC+c3zT0Ga7vzhMFFQcYhj5FMABhOI7Y8lNTCW6hG6xuEueBL+CdKCbxMJsKIiyziyXhcKebk6Uay8/j+RKXDf/+vdz2OMCfuWXnVeZJjjKaG5OtriMT9fV4JWVDVfYCFmdlSzFa/D5r+hYKlt6UATg8CLb60AfJvHEvBHX4tO3StmtFr+IozzeTGVzezhyokqcMQJN1Dia3H3qA1eQeI81Zb89IdkkebfliV0o9PIdsdElWXqGDHk3iI6Jc/imW03ObwytVNAvDiHFSfzoH7R4a8zBOHFukGdQWTfN9pPb7oXVwOG/VYMzHMPZikGYWJdAAOYiASWB+VX6THTXZpuBHs7QJqQAAA=',
+            colors: { primary: '#211e1f', secondary: '#7d6f50' },
             arena: 'Cottage Grove Ice Arena, Cottage Grove',
+            careerStats: {
+              "KOHNEN_BLA": { "type": "skater", "data": { "gp": 80, "g": 33, "a": 42, "pts": 75, "pim": 56, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "MILLER_EME": { "type": "skater", "data": { "gp": 50, "g": 11, "a": 26, "pts": 37, "pim": 74, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "SCHMITZ_IVA": { "type": "skater", "data": { "gp": 62, "g": 20, "a": 17, "pts": 37, "pim": 34, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "KOHNEN_LAN": { "type": "skater", "data": { "gp": 53, "g": 10, "a": 20, "pts": 30, "pim": 16, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "ZUBER_CHA": { "type": "skater", "data": { "gp": 52, "g": 13, "a": 12, "pts": 25, "pim": 8, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "HUGHES_HAN": { "type": "skater", "data": { "gp": 27, "g": 13, "a": 4, "pts": 17, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "KREMER_MAT": { "type": "skater", "data": { "gp": 53, "g": 11, "a": 9, "pts": 20, "pim": 26, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "HALVORSEN_THO": { "type": "skater", "data": { "gp": 27, "g": 0, "a": 15, "pts": 15, "pim": 16, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "DWYER_IAN": { "type": "skater", "data": { "gp": 27, "g": 4, "a": 10, "pts": 14, "pim": 8, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "SAEWERT_DER": { "type": "skater", "data": { "gp": 50, "g": 3, "a": 9, "pts": 12, "pim": 18, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "BRAATZ_BRA": { "type": "skater", "data": { "gp": 42, "g": 2, "a": 6, "pts": 8, "pim": 20, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "GONZAGA_JOE": { "type": "skater", "data": { "gp": 18, "g": 3, "a": 3, "pts": 6, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "WERNER_JAC": { "type": "skater", "data": { "gp": 47, "g": 0, "a": 5, "pts": 5, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "TAVERNA_MAT": { "type": "skater", "data": { "gp": 49, "g": 3, "a": 2, "pts": 5, "pim": 4, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "METHVEN_BOD": { "type": "skater", "data": { "gp": 27, "g": 2, "a": 1, "pts": 3, "pim": 20, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "CHLEBECK_NAT": { "type": "skater", "data": { "gp": 35, "g": 1, "a": 1, "pts": 2, "pim": 12, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "PREIMESBERGER_RYA": { "type": "skater", "data": { "gp": 26, "g": 0, "a": 2, "pts": 2, "pim": 8, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "ADAMIDIS_JOE": { "type": "skater", "data": { "gp": 13, "g": 0, "a": 1, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "BONK_GRI": { "type": "skater", "data": { "gp": 14, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "TOMASKA_ELI": { "type": "goalie", "data": { "gp": 13, "min": "500:07", "w": 2, "l": 8, "t": 0, "so": 0, "ga": 41, "sv": 286 } },
+              "LANAHAN_ZAN": { "type": "goalie", "data": { "gp": 42, "min": "1360:52", "w": 10, "l": 18, "t": 1, "so": 1, "ga": 105, "sv": 711 } },
+              "MORIS_LUK": { "type": "skater", "data": { "gp": 7, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "FONSECA_PRE": { "type": "goalie", "data": { "gp": 8, "min": "127:01", "w": 1, "l": 1, "t": 0, "so": 0, "ga": 21, "sv": 73 } },
+              "LIMPERT_DRA": { "type": "goalie", "data": { "gp": 1, "min": "51:00", "w": 0, "l": 1, "t": 0, "so": 0, "ga": 5, "sv": 22 } },
+              "MUTH_BRA": { "type": "skater", "data": { "gp": 51, "g": 11, "a": 6, "pts": 17, "pim": 30, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "WIDEN_COL": { "type": "skater", "data": { "gp": 52, "g": 3, "a": 10, "pts": 13, "pim": 18, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "POLIFKA_DAV": { "type": "skater", "data": { "gp": 45, "g": 4, "a": 14, "pts": 18, "pim": 28, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "GONZAGA_JAK": { "type": "skater", "data": { "gp": 53, "g": 2, "a": 4, "pts": 6, "pim": 26, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "HUGDAHL_EAS": { "type": "skater", "data": { "gp": 33, "g": 1, "a": 2, "pts": 3, "pim": 31, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "ELLIOTT_JAC": { "type": "skater", "data": { "gp": 43, "g": 0, "a": 7, "pts": 7, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "GRANER_HUD": { "type": "skater", "data": { "gp": 18, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "HART_ZAC": { "type": "skater", "data": { "gp": 17, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "SCHMIDT_SAM": { "type": "skater", "data": { "gp": 9, "g": 0, "a": 1, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "LARSON_BRO": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "METHVAN_BOD": { "type": "skater", "data": { "gp": 21, "g": 0, "a": 0, "pts": 0, "pim": 12, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "JOHNSON_ADA": { "type": "skater", "data": { "gp": 20, "g": 0, "a": 0, "pts": 0, "pim": 4, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "STRONG_CAR": { "type": "skater", "data": { "gp": 11, "g": 0, "a": 0, "pts": 0, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "ADAMIDIS_ALE": { "type": "skater", "data": { "gp": 8, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "LEFEBVRE_CAL": { "type": "skater", "data": { "gp": 19, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "WEINMEYER_JAX": { "type": "skater", "data": { "gp": 16, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "GRIFFITH_AUS": { "type": "skater", "data": { "gp": 14, "g": 0, "a": 0, "pts": 0, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "PETRANGELO_LUC": { "type": "skater", "data": { "gp": 7, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "CASWELL_DEC": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "DRUM_JT": { "type": "goalie", "data": { "gp": 30, "min": "933:03", "w": 2, "l": 12, "t": 1, "so": 0, "ga": 63, "sv": 531 } },
+              "LEGATE_THO": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "RICE_CON": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "GEORGE_ADR": { "type": "skater", "data": { "gp": 8, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "JORDAN_JAC": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "KOHNEN_GRA": { "type": "skater", "data": { "gp": 26, "g": 25, "a": 25, "pts": 50, "pim": 32, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "TAUSCHER_JAC": { "type": "skater", "data": { "gp": 26, "g": 12, "a": 14, "pts": 26, "pim": 6, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "KNUTSEN_BRA": { "type": "skater", "data": { "gp": 26, "g": 11, "a": 14, "pts": 25, "pim": 31, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "LEYDE_BLA": { "type": "skater", "data": { "gp": 26, "g": 4, "a": 6, "pts": 10, "pim": 19, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "LANAHAN_RIC": { "type": "skater", "data": { "gp": 25, "g": 3, "a": 4, "pts": 7, "pim": 18, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "ZUBER_NIK": { "type": "skater", "data": { "gp": 24, "g": 2, "a": 3, "pts": 5, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "STOFER_LUK": { "type": "skater", "data": { "gp": 25, "g": 0, "a": 4, "pts": 4, "pim": 12, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "VENNE_ALE": { "type": "skater", "data": { "gp": 26, "g": 0, "a": 2, "pts": 2, "pim": 7, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "GARRETT_HAN": { "type": "skater", "data": { "gp": 23, "g": 0, "a": 1, "pts": 1, "pim": 20, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "HILLMEYER_EVA": { "type": "skater", "data": { "gp": 26, "g": 1, "a": 0, "pts": 1, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "HODGINS_JAC": { "type": "goalie", "data": { "gp": 23, "min": "1153:53", "w": 12, "l": 10, "t": 1, "so": 0, "ga": 60, "sv": 751 } },
+              "OLSON_CHA": { "type": "skater", "data": { "gp": 25, "g": 0, "a": 1, "pts": 1, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "BRIGUET_LOU": { "type": "skater", "data": { "gp": 16, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
+              "DOYLE_RYA": { "type": "skater", "data": { "gp": 5, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } }
+            },
             pronunciations: {}
-          },
-          careerStats: {
-            "KOHNEN_BLA": { "type": "skater", "data": { "gp": 80, "g": 33, "a": 42, "pts": 75, "pim": 56, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "MILLER_EME": { "type": "skater", "data": { "gp": 50, "g": 11, "a": 26, "pts": 37, "pim": 74, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "SCHMITZ_IVA": { "type": "skater", "data": { "gp": 62, "g": 20, "a": 17, "pts": 37, "pim": 34, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "KOHNEN_LAN": { "type": "skater", "data": { "gp": 53, "g": 10, "a": 20, "pts": 30, "pim": 16, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "ZUBER_CHA": { "type": "skater", "data": { "gp": 52, "g": 13, "a": 12, "pts": 25, "pim": 8, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "HUGHES_HAN": { "type": "skater", "data": { "gp": 27, "g": 13, "a": 4, "pts": 17, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "KREMER_MAT": { "type": "skater", "data": { "gp": 53, "g": 11, "a": 9, "pts": 20, "pim": 26, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "HALVORSEN_THO": { "type": "skater", "data": { "gp": 27, "g": 0, "a": 15, "pts": 15, "pim": 16, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "DWYER_IAN": { "type": "skater", "data": { "gp": 27, "g": 4, "a": 10, "pts": 14, "pim": 8, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "SAEWERT_DER": { "type": "skater", "data": { "gp": 50, "g": 3, "a": 9, "pts": 12, "pim": 18, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "BRAATZ_BRA": { "type": "skater", "data": { "gp": 42, "g": 2, "a": 6, "pts": 8, "pim": 20, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "GONZAGA_JOE": { "type": "skater", "data": { "gp": 18, "g": 3, "a": 3, "pts": 6, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "WERNER_JAC": { "type": "skater", "data": { "gp": 47, "g": 0, "a": 5, "pts": 5, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "TAVERNA_MAT": { "type": "skater", "data": { "gp": 49, "g": 3, "a": 2, "pts": 5, "pim": 4, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "METHVEN_BOD": { "type": "skater", "data": { "gp": 27, "g": 2, "a": 1, "pts": 3, "pim": 20, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "CHLEBECK_NAT": { "type": "skater", "data": { "gp": 35, "g": 1, "a": 1, "pts": 2, "pim": 12, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "PREIMESBERGER_RYA": { "type": "skater", "data": { "gp": 26, "g": 0, "a": 2, "pts": 2, "pim": 8, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "ADAMIDIS_JOE": { "type": "skater", "data": { "gp": 13, "g": 0, "a": 1, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "BONK_GRI": { "type": "skater", "data": { "gp": 14, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "TOMASKA_ELI": { "type": "goalie", "data": { "gp": 13, "min": "500:07", "w": 2, "l": 8, "t": 0, "so": 0, "ga": 41, "sv": 286 } },
-            "LANAHAN_ZAN": { "type": "goalie", "data": { "gp": 42, "min": "1360:52", "w": 10, "l": 18, "t": 1, "so": 1, "ga": 105, "sv": 711 } },
-            "MORIS_LUK": { "type": "skater", "data": { "gp": 7, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "FONSECA_PRE": { "type": "goalie", "data": { "gp": 8, "min": "127:01", "w": 1, "l": 1, "t": 0, "so": 0, "ga": 21, "sv": 73 } },
-            "LIMPERT_DRA": { "type": "goalie", "data": { "gp": 1, "min": "51:00", "w": 0, "l": 1, "t": 0, "so": 0, "ga": 5, "sv": 22 } },
-            "MUTH_BRA": { "type": "skater", "data": { "gp": 51, "g": 11, "a": 6, "pts": 17, "pim": 30, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "WIDEN_COL": { "type": "skater", "data": { "gp": 52, "g": 3, "a": 10, "pts": 13, "pim": 18, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "POLIFKA_DAV": { "type": "skater", "data": { "gp": 45, "g": 4, "a": 14, "pts": 18, "pim": 28, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "GONZAGA_JAK": { "type": "skater", "data": { "gp": 53, "g": 2, "a": 4, "pts": 6, "pim": 26, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "HUGDAHL_EAS": { "type": "skater", "data": { "gp": 33, "g": 1, "a": 2, "pts": 3, "pim": 31, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "ELLIOTT_JAC": { "type": "skater", "data": { "gp": 43, "g": 0, "a": 7, "pts": 7, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "GRANER_HUD": { "type": "skater", "data": { "gp": 18, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "HART_ZAC": { "type": "skater", "data": { "gp": 17, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "SCHMIDT_SAM": { "type": "skater", "data": { "gp": 9, "g": 0, "a": 1, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "LARSON_BRO": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "METHVAN_BOD": { "type": "skater", "data": { "gp": 21, "g": 0, "a": 0, "pts": 0, "pim": 12, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "JOHNSON_ADA": { "type": "skater", "data": { "gp": 20, "g": 0, "a": 0, "pts": 0, "pim": 4, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "STRONG_CAR": { "type": "skater", "data": { "gp": 11, "g": 0, "a": 0, "pts": 0, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "ADAMIDIS_ALE": { "type": "skater", "data": { "gp": 8, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "LEFEBVRE_CAL": { "type": "skater", "data": { "gp": 19, "g": 1, "a": 0, "pts": 1, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "WEINMEYER_JAX": { "type": "skater", "data": { "gp": 16, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "GRIFFITH_AUS": { "type": "skater", "data": { "gp": 14, "g": 0, "a": 0, "pts": 0, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "PETRANGELO_LUC": { "type": "skater", "data": { "gp": 7, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "CASWELL_DEC": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "DRUM_JT": { "type": "goalie", "data": { "gp": 30, "min": "933:03", "w": 2, "l": 12, "t": 1, "so": 0, "ga": 63, "sv": 531 } },
-            "LEGATE_THO": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "RICE_CON": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "GEORGE_ADR": { "type": "skater", "data": { "gp": 8, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "JORDAN_JAC": { "type": "skater", "data": { "gp": 6, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "KOHNEN_GRA": { "type": "skater", "data": { "gp": 26, "g": 25, "a": 25, "pts": 50, "pim": 32, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "TAUSCHER_JAC": { "type": "skater", "data": { "gp": 26, "g": 12, "a": 14, "pts": 26, "pim": 6, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "KNUTSEN_BRA": { "type": "skater", "data": { "gp": 26, "g": 11, "a": 14, "pts": 25, "pim": 31, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "LEYDE_BLA": { "type": "skater", "data": { "gp": 26, "g": 4, "a": 6, "pts": 10, "pim": 19, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "LANAHAN_RIC": { "type": "skater", "data": { "gp": 25, "g": 3, "a": 4, "pts": 7, "pim": 18, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "ZUBER_NIK": { "type": "skater", "data": { "gp": 24, "g": 2, "a": 3, "pts": 5, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "STOFER_LUK": { "type": "skater", "data": { "gp": 25, "g": 0, "a": 4, "pts": 4, "pim": 12, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "VENNE_ALE": { "type": "skater", "data": { "gp": 26, "g": 0, "a": 2, "pts": 2, "pim": 7, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "GARRETT_HAN": { "type": "skater", "data": { "gp": 23, "g": 0, "a": 1, "pts": 1, "pim": 20, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "HILLMEYER_EVA": { "type": "skater", "data": { "gp": 26, "g": 1, "a": 0, "pts": 1, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "HODGINS_JAC": { "type": "goalie", "data": { "gp": 23, "min": "1153:53", "w": 12, "l": 10, "t": 1, "so": 0, "ga": 60, "sv": 751 } },
-            "OLSON_CHA": { "type": "skater", "data": { "gp": 25, "g": 0, "a": 1, "pts": 1, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "BRIGUET_LOU": { "type": "skater", "data": { "gp": 16, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } },
-            "DOYLE_RYA": { "type": "skater", "data": { "gp": 5, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0 } }
           },
           careerSeasonData: { season1: '', season2: '', season3: '' }
         };
@@ -201,7 +203,7 @@
               teamName: 'Delano Tigers',
               logo: null,
               colors: { primary: '#fb923c', secondary: '#1f2937' },
-              arena: 'Delano Area Sports Arena, Delano',
+              arena: '',
               careerStats: {},
               pronunciations: {},
               careerSeasonData: {
@@ -471,14 +473,19 @@
             const exportObj = {
               _exportInfo: {
                 exportDate: new Date().toISOString(),
-                version: '10.5',
+                version: '11.6',
                 teamName: myTeamSetup.teamName,
                 description: 'Full team configuration for subscriber site build'
               },
               myTeamSetup: {
-                ...myTeamSetup,
-                // Include career stats from localStorage
-                careerStats: storedCareerStats
+                teamName: myTeamSetup.teamName,
+                logo: myTeamSetup.logo,
+                colors: myTeamSetup.colors,
+                arena: myTeamSetup.arena,
+                // Career stats from localStorage (not from myTeamSetup)
+                careerStats: storedCareerStats,
+                // Pronunciations always empty for subscribers - they add their own
+                pronunciations: {}
               },
               // Include raw career season paste data
               careerSeasonData: {
@@ -909,6 +916,8 @@
                       const dateMatch = fullLine.match(/^([A-Za-z]{3}\s+[A-Za-z]{3}\s+\d{1,2},?\s+\d{4}\s*@\s*\d{1,2}:\d{2}[ap]?m?)/i);
                       if (dateMatch) {
                         date = dateMatch[1];
+                        // Normalize time format: 7:00p -> 7:00pm
+                        date = date.replace(/(\d:\d{2})([ap])(?!m)/i, '$1$2m');
                       } else {
                         // Fallback - just take up to the time
                         const parts = fullLine.split(/\s+(?=[A-Z][a-z]+\s+[A-Z])/);
@@ -953,7 +962,8 @@
                     if (line.includes('@') && line.match(/\d{1,2}:\d{2}/)) {
                       const parts = line.split('@');
                       date = parts[0]?.trim() || '';
-                      time = parts[1]?.trim() || '';
+                      // Normalize time format: 7:00p -> 7:00pm
+                      time = (parts[1]?.trim() || '').replace(/(\d:\d{2})([ap])(?!m)/i, '$1$2m');
                     }
                     
                     // Location line - typically follows the date/time and contains arena name
@@ -3048,52 +3058,28 @@
                     </div>
                   </div>
 
-                  {/* C4 (24%) - CENTER: TEAM NAMES GRID + GAME INFO */}
-                  <div className="flex flex-col justify-between">
-                    <div className="bg-gray-100 rounded p-1 mb-0">
-                      <div className="flex gap-1" style={{ height: '70px' }}>
-                        <div className="grid gap-0" style={{ 
-                          gridTemplateColumns: 'repeat(3, 1fr)',
-                          gridTemplateRows: 'repeat(4, 1fr)',
-                          flex: '3'
-                        }}>
-                          {[...Array(12)].map((_, i) => (
-                            <div key={`left-${i}`} className="bg-white border border-gray-300"></div>
-                          ))}
-                        </div>
-                        <div style={{ width: '0.5fr' }}></div>
-                        <div className="grid gap-0" style={{ 
-                          gridTemplateColumns: 'repeat(2, 1fr)',
-                          gridTemplateRows: 'repeat(4, 1fr)',
-                          flex: '2'
-                        }}>
-                          {[...Array(8)].map((_, i) => (
-                            <div key={`right-${i}`} className="bg-white border border-gray-300"></div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex-1 flex flex-col items-center justify-end text-center" style={{ paddingBottom: '4px' }}>
-                      <div style={{ fontSize: 'clamp(14px, 1.8vw, 20px)', color: myTeamSetup.colors.primary }} className="font-black leading-tight">
+                  {/* C4 (24%) - CENTER: TEAM NAMES + GAME INFO */}
+                  <div className="flex flex-col justify-center">
+                    <div className="flex-1 flex flex-col items-center justify-center text-center">
+                      <div style={{ fontSize: 'clamp(17px, 2.2vw, 24px)', color: myTeamSetup.colors.primary }} className="font-black leading-tight">
                         {myTeamSetup.teamName}
                       </div>
-                      <div style={{ fontSize: 'clamp(7px, 0.8vw, 9px)' }} className="text-gray-700">
+                      <div style={{ fontSize: 'clamp(11px, 1.4vw, 15px)' }} className="text-gray-600">
                         ({myTeamData.record.w}-{myTeamData.record.l}-{myTeamData.record.t}, {myTeamData.section}, {myTeamData.conference})
                       </div>
                       
                       <div style={{ fontSize: 'clamp(10px, 1.3vw, 14px)', padding: '1px 0' }} className="font-semibold text-gray-600">vs</div>
                       
-                      <div style={{ fontSize: 'clamp(14px, 1.8vw, 20px)', color: opponentColors.primary }} className="font-black leading-tight">
+                      <div style={{ fontSize: 'clamp(17px, 2.2vw, 24px)', color: opponentColors.primary }} className="font-black leading-tight">
                         {opponentData.teamName} {opponentData.nickname}
                       </div>
-                      <div style={{ fontSize: 'clamp(7px, 0.8vw, 9px)' }} className="text-gray-700">
+                      <div style={{ fontSize: 'clamp(11px, 1.4vw, 15px)' }} className="text-gray-600">
                         ({opponentData.record.w}-{opponentData.record.l}-{opponentData.record.t}, {opponentData.section}, {opponentData.conference})
                       </div>
                       
                       <div style={{ fontSize: 'clamp(11px, 1.4vw, 15px)', fontWeight: '800', marginTop: '2px' }} className="text-gray-600">Game #{(myTeamData.record.w + myTeamData.record.l + myTeamData.record.t + 1)}</div>
                       {myTeamData.currentGame && myTeamData.currentGame.date && (
-                        <div style={{ fontSize: 'clamp(7px, 0.8vw, 9px)' }} className="text-gray-700">
+                        <div style={{ fontSize: 'clamp(11px, 1.4vw, 15px)' }} className="text-gray-600">
                           {myTeamData.currentGame.date}{myTeamData.currentGame.time ? ` @ ${myTeamData.currentGame.time}` : ''}
                           {myTeamData.currentGame.location ? ` at ${myTeamData.currentGame.location}` : ''}
                         </div>
