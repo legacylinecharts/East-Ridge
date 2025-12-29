@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>East Ridge Raptors v3.4</title>
+    <title>East Ridge Raptors v3.7</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -184,6 +184,7 @@
               "OLSON_CHA": { "type": "skater", "data": {"gp": 25, "g": 0, "a": 1, "pts": 1, "pim": 2, "plusMinus": 0, "fow": 0, "fol": 0} },
               "BRIGUET_LOU": { "type": "skater", "data": {"gp": 16, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0} },
               "DOYLE_RYA": { "type": "skater", "data": {"gp": 5, "g": 0, "a": 0, "pts": 0, "pim": 0, "plusMinus": 0, "fow": 0, "fol": 0} }
+            
             },
             pronunciations: {}
           },
@@ -773,7 +774,7 @@
             const exportObj = {
               _exportInfo: {
                 exportDate: new Date().toISOString(),
-                version: '3.4',
+                version: '3.7',
                 teamName: myTeamSetup.teamName,
                 description: 'Full team configuration for subscriber site build'
               },
@@ -999,7 +1000,8 @@
                     !potentialName.includes('Game') && 
                     !potentialName.includes('©') &&
                     !potentialName.includes('SportsEngine') &&
-                    !potentialName.includes('powered by')) {
+                    !potentialName.includes('powered by') &&
+                    potentialName !== 'Out of State') {
                   teamName = potentialName;
                   console.log('✅ Found team name:', teamName);
                 }
@@ -1166,12 +1168,33 @@
                       const line = lines[i];
                       // Match lines that have a team name followed by period scores (numbers separated by tabs/spaces)
                       // e.g., "Rosemount	1	2	1	4" or " Park of Cottage Grove	0	2	0	2"
-                      const tableMatch = line.match(/^\s*([A-Za-z][A-Za-z\s\/\-\.of']+?)\s+\d+\s+\d+/);
+                      const tableMatch = line.match(/^\s*([A-Za-z][A-Za-z\s\/\-\.of'()]+?)\s+\d+\s+\d+/);
                       if (tableMatch) {
                         const foundTeam = tableMatch[1].trim();
-                        // Check if this is our team or opponent
-                        if (foundTeam.toLowerCase().includes(teamName.toLowerCase().substring(0, 4)) ||
-                            teamName.toLowerCase().includes(foundTeam.toLowerCase().substring(0, 4))) {
+                        
+                        // More precise team matching - check if team names match at word boundaries
+                        // This prevents "Grand Forks Central" from matching "East Grand Forks"
+                        const ourTeamWords = teamName.toLowerCase().split(/\s+/);
+                        const foundTeamWords = foundTeam.toLowerCase().split(/\s+/);
+                        
+                        // Check if we have a strong match (at least one word matches exactly or starts with)
+                        const hasStrongMatch = ourTeamWords.some(ourWord => 
+                          ourWord.length >= 4 && foundTeamWords.some(foundWord => 
+                            foundWord === ourWord || 
+                            (foundWord.length >= 4 && ourWord.length >= 4 && 
+                             (foundWord.startsWith(ourWord) || ourWord.startsWith(foundWord)))
+                          )
+                        );
+                        
+                        // Additional check: first word should match for strong confidence
+                        const firstWordMatches = ourTeamWords[0] && foundTeamWords[0] && 
+                          (ourTeamWords[0] === foundTeamWords[0] || 
+                           ourTeamWords[0].startsWith(foundTeamWords[0]) || 
+                           foundTeamWords[0].startsWith(ourTeamWords[0]));
+                        
+                        const isOurTeam = hasStrongMatch && firstWordMatches;
+                        
+                        if (isOurTeam) {
                           ourTeamInTable = foundTeam;
                           if (!opponentInTable) {
                             isOurTeamFirst = true;
@@ -3010,7 +3033,7 @@
                     
                     <div className="p-6">
                       <div className="bg-purple-50 p-4 rounded mb-4">
-                        <h3 className="font-bold mb-2">📦 Subscriber Build Export v14.0</h3>
+                        <h3 className="font-bold mb-2">📦 Subscriber Build Export v14.2</h3>
                         <p className="text-sm text-gray-600 mb-2">
                           Copy this JSON configuration and send it to Claude to build a customized subscriber version. 
                         </p>
