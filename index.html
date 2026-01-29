@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>East Ridge Raptors v4.0</title>
+    <title>East Ridge Raptors v4.1</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -773,7 +773,7 @@
             const exportObj = {
               _exportInfo: {
                 exportDate: new Date().toISOString(),
-                version: '4.0',
+                version: '4.1',
                 teamName: myTeamSetup.teamName,
                 description: 'Full team configuration for subscriber site build'
               },
@@ -3370,10 +3370,8 @@
                         <>
                           <div style={{ fontSize: 'clamp(10px, 1.1vw, 13px)', wordWrap: 'break-word', color: myTeamSetup.colors.primary }} className="leading-tight">
                             {myTeamData.teamName} <span className={`font-black`} style={{ 
-                              color: myTeamData.lastGame.result === 'W' ? '#00AA00' :
-                                     myTeamData.lastGame.result === 'L' ? '#CC0000' :
-                                     '#000000'
-                            }}>{myTeamData.lastGame.ourScore} - {myTeamData.lastGame.oppScore}</span> {myTeamData.lastGame.opponent}
+  				color: '#000000'
+			}}>{myTeamData.lastGame.ourScore} - {myTeamData.lastGame.oppScore}</span> {myTeamData.lastGame.opponent}
                           </div>
                           <div style={{ fontSize: 'clamp(8px, 0.9vw, 10px)', wordWrap: 'break-word', color: myTeamSetup.colors.primary }}>{myTeamData.lastGame.date}</div>
                         </>
@@ -3530,10 +3528,8 @@
                         <>
                           <div style={{ fontSize: 'clamp(10px, 1.1vw, 13px)', wordWrap: 'break-word', color: opponentColors.primary }} className="leading-tight">
                             {opponentData.teamName} <span className={`font-black`} style={{
-                              color: opponentData.lastGame.result === 'W' ? '#00AA00' :
-                                     opponentData.lastGame.result === 'L' ? '#CC0000' :
-                                     '#000000'
-                            }}>{opponentData.lastGame.ourScore} - {opponentData.lastGame.oppScore}</span> {opponentData.lastGame.opponent}
+  				color: '#000000'
+			}}>{opponentData.lastGame.ourScore} - {opponentData.lastGame.oppScore}</span> {opponentData.lastGame.opponent}
                           </div>
                           <div style={{ fontSize: 'clamp(8px, 0.9vw, 10px)', wordWrap: 'break-word', color: opponentColors.primary }}>{opponentData.lastGame.date}</div>
                         </>
